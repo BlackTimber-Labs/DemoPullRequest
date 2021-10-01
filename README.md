@@ -1,4 +1,4 @@
-# Demo Pull
+# Demo Pull Request
 ## Steps to setup this Repository Locally
 
   1. Fork this repository to your account.
