@@ -1,34 +1,18 @@
-#include <iostream>
-using namespace std;
-class number{
-    int number1;
-    int number2;
-public:
-    number(){}
-    number(int num1 , int num2,int temp);
-    void show();
-};
-number::number (int num1 ,int num2,int temp)
-{
-    number1=num1;
-    number2=num2;
-    temp=num1;
-    num1=num2;
-    num2=temp;
-};
-void number::show(){
-    cout<<"the number after swaping are a is "<<number1<<" and b is "<<number2;
-}
+//
+//  main.cpekkrrvp
+//  lenght function
+//
+//  Created by Mohd  Adnan on 07/09/21.
+//
 
-int main(){
-    number n1,n2;
-    int num1;
-    int num2;
-    cout<<"Enter the value of a and b"<<endl;
-    cin>>num1>>num2;
-    n1=number(num1,num2);
-    n1.show();
-    
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(int argc, const char * argv[]) {
+    string first;
+    cout<<"NAME ";
+    cin >> first;
+    cout << "Total Number of Words " << first.length()<<endl;
     return 0;
-    
 }

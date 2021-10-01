@@ -1,0 +1,11 @@
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main(int argc, const char * argv[]) {
+    string mystring = "ADNAN";
+    mystring[2]='a';
+    cout << mystring;
+    return 0;
+}
