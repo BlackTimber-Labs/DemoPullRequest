@@ -1,18 +1,18 @@
-#include <iostream>
+//
+//  main.cpekkrrvp
+//  lenght function
+//
+//  Created by Mohd  Adnan on 07/09/21.
+//
 
+#include <iostream>
+#include <string>
 using namespace std;
 
-
-int main(){
-int i,x;
-
-    cout<<"Enter any number:";
-
-    cin>>x;
-
-    for(i=0;i<=10;i++)
-
-    cout<<"\n"<<x<<" * "<<i<<" = "<<x*i;
-
+int main(int argc, const char * argv[]) {
+    string first;
+    cout<<"NAME ";
+    cin >> first;
+    cout << "Total Number of Words " << first.length()<<endl;
     return 0;
 }
