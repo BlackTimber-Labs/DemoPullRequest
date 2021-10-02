@@ -1,0 +1,408 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+# The Welcoming Lines 
+def title():
+    print("'\t\t'")
+    for i in range(2):
+          print("*WELCOME*")
+    print()
+    print('\t\t****Welcome To Matrices Calculation****')
+    print("'\t\t'")
+    for i in range(2):
+          print("*WELCOME*")
+    print('\n\n')
+
+def menu():
+    title()
+    c='y'
+    while(c=='y'):
+        print("1.Addition Of Matrix")
+        print("2.Subtraction Of Matrix ")
+        print("3.Multiplication Of Matrix ")
+        print("4.Transpose Of A Matrix ")
+        print("5.To Check If It Is A Symmetric Or Not ")
+        print("6.To Check If It Is A Skew Symmetric Or Not ")
+        print("7.To Check If It Is A Identity Matrix Or Not ")
+        print("8.Sum Of Upper Triangular Matrix ")
+        print("9.Sum Of Lower Triangular Matrix ")
+        print("10.Sum Of Each Row And Column Of A Matrix ")
+        print("11.Addition of matrix using CSV ")
+        print("12.Subtraction of matrix using CSV ")
+        print("13.Multiplication of matrix using CSV ")
+        print("14.Transpose of matrix using CSV ")
+
+        choice=int(input('Enter The Choice : '))
+        if choice==1:
+            addition()
+        elif choice==2:
+            subtraction()
+        elif choice==3:
+            multiplication()
+        elif choice==4:
+            transpose_of_a_matrix()
+        elif choice==5:
+            symmetric_matrix()
+        elif choice==6:
+            skew_symmetric_matrix()
+        elif choice==7:
+            identity_matrix()
+        elif choice==8:
+            sum_of_upper_triangular_of_a_matrix()
+        elif choice==9:
+            sum_of_lower_triangular_of_a_matrix()
+        elif choice==10:
+            sum_of_each_row_and_column_of_a_matrix()
+        elif choice==11:
+            addition_of_matrix_using_CSV()
+        elif choice==12:
+            subtraction_of_matrix_using_CSV()
+        elif choice==13:
+            multiplication_of_matrix_using_CSV()
+        elif choice==14:
+            transpose_of_matrix_using_CSV()
+def addition():
+ print("addition of matrix")
+ a=int(input("Enter Number Of Rows"))
+ b=int(input("Enter Number Of Columns"))
+ matrix=[]
+ for i in range (a):    #Loop For Row
+     c=[]
+     for j in range(b):   #Loop For Columns
+         j=int(input("Enter First Matrix Number : "))
+         c.append(j)
+     print()
+     matrix.append(c)
+ matrix1=[]
+ for i in range (a):    #Loop For Row
+     d=[]
+     for j in range(b):   #Loop For Columns
+         j=int(input("Enter Second Matrix Number : "))
+         d.append(j)
+     print()
+     matrix1.append(d)
+ print("1st Matrix .....")
+ for i in range(a):
+     for j in range(b):
+         print(matrix[i][j],end=" ")
+     print()
+ print("2nd Matrix .....")
+ for i in range(a):
+     for j in range(b):
+         print(matrix1[i][j],end=" ")
+     print()
+ result=[[0,0,0],[0,0,0],[0,0,0]]
+ for i in range(a):
+     for j in range(b):
+         result[i][j]=matrix[i][j]+matrix1[i][j]
+
+ print("Result Matrix.....")
+ for i in range(a):
+     for j in range(b):
+         print(result[i][j],end=" ")
+     print()
+
+def subtraction():
+ print("addition of matrix")
+ a=int(input("Enter Number Of Rows"))
+ b=int(input("Enter Number Of Columns"))
+ matrix=[]
+ for i in range (a):    #Loop For Row
+     c=[]
+     for j in range(b):   #Loop For Columns
+         j=int(input("Enter First Matrix Number : "))
+         c.append(j)
+     print()
+     matrix.append(c)
+ matrix1=[]
+ for i in range (a):    #Loop For Row
+     d=[]
+     for j in range(b):   #Loop For Columns
+         j=int(input("Enter Second Matrix Number : "))
+         d.append(j)
+     print()
+     matrix1.append(d)
+ print("1st Matrix .....")
+ for i in range(a):
+     for j in range(b):
+         print(matrix[i][j],end=" ")
+     print()
+ print("2nd Matrix .....")
+ for i in range(a):
+     for j in range(b):
+         print(matrix1[i][j],end=" ")
+     print()
+ result=[[0,0,0],[0,0,0],[0,0,0]]
+ for i in range(a):
+     for j in range(b):
+         result[i][j]=matrix[i][j]-matrix1[i][j]
+
+ print("Result Matrix.....")
+ for i in range(a):
+     for j in range(b):
+         print(result[i][j],end=" ")
+     print()
+
+
+def multiplication():
+ print("multiplication of matrix")
+ m=[]
+ for i in range(3):
+     a=[]
+     for j in range(3):
+         j=int(input("Enter Number In Pocket for 1st matrix ["+str(i)+"] ["+str(j)+"] : "))
+         a.append(j)
+     m.append(a)
+ n=[]
+ for i in range(3):
+     b=[]
+     for j in range(3):
+         j=int(input("Enter Number In Pocket for 2nd matrix ["+str(i)+"] ["+str(j)+"] : "))
+         b.append(j)
+     n.append(b)
+ print("First Matrix is ....")
+ for i in range(3):
+     for j in range(3):
+         print(m[i][j],end=" ")
+     print()
+ print("Second Matrix is ....")
+ for i in range(3):
+     for j in range(3):
+         print(n[i][j],end=" ")
+     print()
+ result=[[0,0,0],[0,0,0],[0,0,0]]
+ for i in range(3):
+     for j in range(3):
+         for k in range(3):
+             result[i][j]=result[i][j]+m[i][k]*n[k][j]
+ print("Multiplication Of Two Matrix is......")
+ for i in range(3):
+     for j in range(3):
+         print(result[i][j],end=" ")
+     print()
+
+def transpose_of_a_matrix():
+ print("transpose of matrix")
+ m=[]
+ for i in range(3):
+     a=[]
+     for j in range(3):
+         j=int(input("Enter Number In Pocket ["+str(i)+"] ["+str(j)+"]"))
+         a.append(j)
+     m.append(a)
+ print("Matrix is .....")
+
+ for i in range(3):
+     for j in range(3):
+         print(m[i][j],end=" ")
+     print()
+ t=[[0,0,0],[0,0,0],[0,0,0]]
+ for i in range(3):
+     for j in range(3):
+         t[i][j]=m[j][i]
+ print("Transpose Of A Matrix Is....")
+ for i in range(3):
+     for j in range(3):
+         print(t[i][j],end=" ")
+     print()
+
+def symmetric_matrix():
+ print("symmetric matrix")
+ m=[]
+ for i in range(3):
+     a=[]
+     for j in range(3):
+         j=int(input("Enter Number In Pocket ["+str(i)+"] ["+str(j)+"] "))
+         a.append(j)
+     m.append(a)
+ print("Matrix is...")
+ for i in range(3):
+     for j in range(3):
+         print(m[i][j],end=" ")
+     print()
+ t=[[0,0,0],[0,0,0],[0,0,0]]
+ for i in range(3):
+     for j in range(3):
+         t[i][j]=m[j][i]
+ print("Transpose Of A Matrix Is...")
+ for i in range(3):
+     for j in range(3):
+         print(t[i][j],end=" ")
+     print()
+ f =0
+ for i in range(3):
+     for j in range(3):
+         if m[i][j]!=t[i][j]:
+             f=1
+             break
+ if f==0:
+     print("Matrix is a symmetric")
+ else:
+     print("Matrix is not a symmetric")
+
+def skew_symmetric_matrix():
+ print(" skew symmetric matrix ")
+ a=[]
+ for i in range(3):
+     b=[]
+     for j in range(3):
+         j=int(input("Enter Number In Pocket ["+str(i)+"] ["+str(j)+"] "))
+         b.append(j)
+     a.append(b)
+ print("Matrix is...")
+ for i in range(3):
+     for j in range(3):
+         print(a[i][j],end=" ")
+     print()
+ c=[[0,0,0],[0,0,0],[0,0,0]]
+ for i in range(3):
+     for j in range(3):
+         c[i][j]=-a[j][i]
+ print("Transpose Of A Matrix Is...")
+ for i in range(3):
+     for j in range(3):
+         print(c[i][j],end=" ")
+     print()
+ f =0
+ for i in range(3):
+     for j in range(3):
+         if a[i][j]!=c[i][j]:
+             f=1
+             break
+ if f==0:
+     print("Matrix is a skew symmetric")
+ else:
+     print("Matrix is not a skew symmetric")
+
+def identity_matrix():
+ print(" identity matrix ")
+ a=[]
+ for i in range(3):
+     b=[]
+     for j in range(3):
+         j=int(input("Enter Number "))
+         b.append(j)
+     a.append(b)
+ f =0
+ for i in range(3):
+     for j in range(3):
+         if i==j and a[i][j]!=1:
+             f=1
+             break
+         elif i!=j and a[i][j]!=0:
+             f=1
+             break
+ if f==0:
+     print("Matrix Is Identity")
+     for i in range(3):
+         for j in range(3):
+             print(a[i][j],end=" ")
+         print()
+ else:
+     print("Matrix Is Not Identity Matrix")
+ef sum_of_upper_triangular_of_a_matrix():
+ print(" sum of upper triangular matrix ")
+ a=int(input("Enter Number Of Rows : "))
+ b=int(input("Enter Number Of Columns : "))
+
+ matrix=[]
+ for i in range (a):    #Loop For Row
+     c=[]
+     for j in range(b):   #Loop For Columns
+         j=int(input("Enter Number In Pocket "+str(i)+" "+str(j)+" : "))
+         c.append(j)
+     print()
+     matrix.append(c)
+    
+ print("Matrix is ...")
+ sum=0
+ for i in range(a):
+     for j in range(b):
+         print(matrix[i][j],end=" ")
+     print()
+ for i in range(a):
+     for j in range(b):
+         if i<j:
+             sum=sum+matrix[i][j]
+ print("Sum Of Upper Triangular ",sum)
+
+
+def sum_of_lower_triangular_of_a_matrix():
+ print(" sum of lower triangular matrix ")
+ a=int(input("Enter Number Of Rows : "))
+ b=int(input("Enter Number Of Columns : "))
+
+ matrix=[]
+ for i in range (a):    #Loop For Row
+     c=[]
+     for j in range(b):   #Loop For Columns
+         j=int(input("Enter Number In Pocket "+str(i)+" "+str(j)+" : "))
+         c.append(j)
+     print()
+     matrix.append(c)
+ sum=0
+ for i in range(a):
+     for j in range(b):
+         if i>j:
+             sum=sum+matrix[i][j]
+for i in range(a):
+     for j in range(b):
+         print(matrix[i][j],end=" ")
+     print()
+ print("Sum Of Lower Triangular Matrix is......",sum)
+
+def sum_of_each_row_and_column_of_a_matrix():
+ print(" Sum Of Each Row And Column Of A Matrix ")
+ m=[]
+ row=0
+ col=0
+ r=[]
+ c=[]
+ s=0
+ for i in range(3):
+     a=[]
+     for j in range(3):
+         j=int(input("Enter Number In Pocket ["+str(i)+"] ["+str(j)+"] "))
+         a.append(j)
+     m.append(a)
+ for i in range(3):
+     for j in range(3):
+         row=row+m[i][j]
+         col=col+m[j][i]
+     r.append(row)
+     c.append(col)
+     s=s+row
+     row=0
+     col=0
+ c.append(s)
+
+ for i in range(3):
+     for j in range(3):
+         print(m[i][j],end="    ")
+     print(r[i],end="    ")
+     print()
+
+ for i in range(4):
+     print(c[i],end="    ")
+def addition_of_matrix_using_CSV():
+ df=pd.read_csv(r'C:\Users\Dell\OneDrive\Desktop\addition_matrix.csv')
+ print(df)
+
+def subtraction_of_matrix_using_CSV():
+ df=pd.read_csv(r'C:\Users\Dell\OneDrive\Desktop\subtraction.csv')
+ print(df)
+
+def multiplication_of_matrix_using_CSV():
+ df=pd.read_csv(r'C:\Users\Dell\OneDrive\Desktop\multiplication.csv')
+ print(df)
+
+def transpose_of_matrix_using_CSV():
+ df=pd.read_csv(r'C:\Users\Dell\OneDrive\Desktop\transpose.csv')
+ print(df)
+print()
+print()
+c=input(" Press Any Key ")
+print()
+print()
+menu()
+
