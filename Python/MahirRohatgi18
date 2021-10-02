@@ -1,0 +1,112 @@
+#this is a inventory program for a super market 
+print ('SuperMarket inventory')
+class StockInfo:
+	def __init__(self):
+		self._Item  = ' '
+		self._Brand = ' '
+		self._timeleftforexp = 0
+		self._PricePerItem = 0
+		self._Quantity = 0
+	def addStock(self):
+		try:
+			self._Item = input("Enter Item : ")
+			self._Brand = input("Enter Brand : ")
+			self._timeleftforexp = int(input("Enter time left for expiry in months :"))
+			self._PricePerItem = int(input("Enter Price per item  :"))
+			self._Quantity = int(input("enter Quantity : "))
+			return True
+		except ValueError:
+			print ("Enter Information correctly")
+			return False
+	def __str__(self):
+		return '\t'.join(str(x) for x in [self._Item,self._Brand,self._timeleftforexp,self._PricePerItem,self._Quantity])
+
+class StockInventory:
+	def __init__ (self):
+		self.stocks = []
+	def addStock(self):
+		stock = StockInfo()
+		if stock.addStock() == True:
+			self.stocks.append(stock)
+			print()
+			print ("Stock has been added")
+	def viewStock (self):
+		print ('\t'.join(['','Make','Model','Year','color','Mileage']))
+		for iD, stock in enumerate (self.stocks):
+			print (iD + 1,end = '\t')
+			print (stock)
+
+
+inventory = StockInventory()
+while True:
+
+	print ('1 Add stock to inventory')
+	print ('2 Delete stock from inventory')
+	print ('3 View Current inventory')
+	print ('4 Update Vehicle in inventory')
+	print ('5 Export Current inventory')
+	print ('6 QUIT')
+	userInput = int(input('Enter one of the options from above : '))
+	if userInput == 1:
+		#add stock 
+		inventory.addStock()
+	elif userInput == 2:
+		#delete stock 
+		if len(inventory.stocks) < 1 :
+			print ('no stock in inventory')
+			continue 
+		inventory.viewStock()
+		item = int (input('enter number corresponding with the stock '))
+		if item -1 > len (inventory.stocks):
+			print ("invalid number")
+		else :
+			inventory.stocks.remove(inventory.stocks[item - 1])
+			print ()
+			print ("stock removed")
+	elif userInput == 3:
+		# view stock 
+		if len (inventory.stocks) < 1:
+			print ('NO STOCK')
+			continue
+		inventory.viewStock()
+
+	elif  userInput == 4 :
+		#edit stock 
+		if len (inventory.stocks) < 1:
+			print ()
+			print ('NO STOCK')
+			print ()
+			continue 
+		inventory.viewStock()
+		item = int (input('Enter the number corresponding with the stock'))
+		if item -1 > len (inventory.stocks):
+			print ("INVALID ")
+		else :
+ 			stock = StockInfo()
+			if stock.addStock() == True:
+                                
+				inventory.stocks.remove (inventory.stocks[item -1])
+				inventory.stocks.insert (item-1,stock)
+				print()
+				print ("Stock updated")
+	
+	elif userInput == 5 :
+		#export to txt file 
+		if len (inventory.stocks)< 1:
+			print ("NO STOCK")
+			continue
+		else:
+			file = open ('Stock_Inventory.txt','w') 
+			file.write ('\t'.join(['Make','Model','Year','color','Mileage']))
+			file.write ('\n')
+			for stock in inventory.stocks:
+				file.write('%s\n' %stock)
+			file.close()
+			print ("file exported")
+	elif userInput == 6 :
+		#exit loop 
+		print ("Thank you")
+		break 
+	else :
+		#invalid input
+		print ("Invalid input. TRY AGAIN")
