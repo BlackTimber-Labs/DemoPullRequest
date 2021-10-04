@@ -1,0 +1,145 @@
+#include<iostream>
+
+using namespace std;
+
+struct Node{
+
+int data;
+
+struct Node *lp;
+
+struct Node *rp;
+
+};
+
+void traversal_doubly_linked(struct Node *head){
+
+struct Node *ptr=head;
+
+while( ptr != NULL){
+
+std::cout<<"Element: "<<ptr->data<<"\n";
+ptr=ptr->rp;
+
+}
+
+}
+
+struct Node* insertion_at_Beginning(struct Node *head,int data){
+
+struct Node* p= (struct Node*)malloc(sizeof(struct Node));
+
+p->data=data;
+
+p->rp=head;
+head->lp=p;
+head=p;
+
+return head;
+
+}
+
+struct Node* insertion_at_end(struct Node *head,int data){
+
+struct Node* p= (struct Node*)malloc(sizeof(struct Node));
+
+p->data=data;
+
+struct Node *ptr=head;
+
+while( ptr->rp != NULL){
+
+ptr=ptr->rp;
+
+}
+
+ptr->rp=p;
+p->rp=NULL;
+
+return head;
+
+}
+
+struct Node* insertion_in_between(struct Node *head,int index,int data){
+
+struct Node *p= (struct Node*)malloc(sizeof(struct Node));
+p->data=data;
+
+struct Node *ptr=head;
+// struct Node *q=head->rp;
+
+int i=0;
+
+while(i != index-1){
+
+ptr=ptr->rp;
+// q=q->rp;
+
+i++;
+
+}
+
+// ptr->rp=p;
+// q->lp=p;
+
+// p->lp=ptr;
+// p->rp=q;
+
+//  OR
+
+p->lp=ptr;
+p->rp=ptr->rp;
+ptr->rp=p;
+
+return head;
+
+}
+
+int main(){
+
+struct Node *head;
+
+struct Node *second;
+
+struct Node *third;
+
+struct Node *fourth;
+
+head = (struct Node*)malloc(sizeof(struct Node));
+
+second = (struct Node*)malloc(sizeof(struct Node));
+
+third = (struct Node*)malloc(sizeof(struct Node));
+
+fourth = (struct Node*)malloc(sizeof(struct Node));
+
+
+ head->data=7;
+ head->lp=NULL;
+ head->rp=second;
+
+
+ second->data=11;
+ second->lp=head;
+ second->rp=third;
+
+ third->data=9;
+ third->lp=second;
+ third->rp=NULL;
+
+
+
+std::cout<<"Original Linked List: \n";
+
+traversal_doubly_linked(head);
+
+
+// head= insertion_at_Beginning(head,77);
+//    head = insertion_at_end(head,43);
+head = insertion_in_between(head,2,34);
+
+std::cout<<"Linked List After Insertion: \n";
+
+traversal_doubly_linked(head);
+    return 0;
+}
