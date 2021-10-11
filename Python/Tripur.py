@@ -27,4 +27,3 @@ arr = [ 3, 6, 4, 2 ];
 n = len(arr);
 operations(arr, n, k);
 
-# This code is contributed by PrinciRaj1992
