@@ -1,7 +1,7 @@
 	
 
 
-# Function to perform the given operation on arr[]
+
 def operations(arr, n, k):
 	arr.sort();
 	i = 0; sum = 0;
