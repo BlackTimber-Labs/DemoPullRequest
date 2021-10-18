@@ -1,18 +1,16 @@
 //
-//  main.cpekkrrvp
-//  lenght function
+//  main.cpp
+//  For Loop
 //
-//  Created by Mohd  Adnan on 07/09/21.
+//  Created by Mohd  Adnan on 08/09/21.
 //
 
 #include <iostream>
-#include <string>
 using namespace std;
-
 int main(int argc, const char * argv[]) {
-    string first;
-    cout<<"NAME ";
-    cin >> first;
-    cout << "Total Number of Words " << first.length()<<endl;
+    for (int i =0; 100; i++) {
+        cout<<i<<endl;
+    }
     return 0;
 }
+ 
