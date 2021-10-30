@@ -1,9 +1,11 @@
+// Program to find factorial
+
 #include <iostream>
 using namespace std;
 
-int main() {
+int main() {      // Main Function
     int n;
-    long double factorial = 1.0;
+    long double factorial = 1.0;    // Initialization
 
     cout << "Enter a positive integer: ";
     cin >> n;
@@ -17,3 +19,5 @@ int main() {
         cout << "Factorial of " << n << " = " << factorial;    
     }
 }
+
+// End of Program
