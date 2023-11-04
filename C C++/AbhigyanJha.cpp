@@ -6,7 +6,7 @@ int main(){
     int t;
     cin>>t;
     while(t--){
-    
+
     int n;
     cin>>n;
     int arr[n];
@@ -31,11 +31,11 @@ int main(){
         j++;
     }
 
-    cout<<ans<<endl;
+    cout<<ans;
     }
-        
+
 
     return 0;
-    
+
 
 }
